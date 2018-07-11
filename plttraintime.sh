@@ -1,0 +1,1 @@
+gnuplot -p -e 'set xlabel "GPU Number";set ylabel "Train time of 200 steps(Seconds)";set key bottom right;set logscale x;set grid;set xtics 1,2,4;plot [0.9:5] "traintime_bs8192_moe16" w linesp,"traintime_bs8192_moe32" w linesp,"traintime_bs8192_moe64" w linesp,"traintime_bs8192_moe128" w linesp,"traintime_bs8192_moe256" w linesp'
