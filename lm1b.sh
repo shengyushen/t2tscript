@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ $# -ne 3 ] ; 
-  then echo "Usage : lm1b.sh <batch size> <mode number> <gpu number>"
+  then echo "Usage : lm1b.sh <batch size> <expert number> <gpu number>"
 else 
   rm -rf bs$1_moe$2_gpu$3.out
   rm -f bs$1_moe$2_gpu$3.*

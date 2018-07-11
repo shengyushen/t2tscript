@@ -1,6 +1,15 @@
 # t2tscript
 t2t additional script
 
+lm1b.sh  : run a training 
+
+
+
+
+
+
+
+
 grp.sh
 fnd.sh : find files 
 
