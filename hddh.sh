@@ -1,15 +1,11 @@
-grep HtoD bs$1_moe$2.csv |awk -F, '{ssy=ssy+$12} END{print "HtoD(MB) " ssy}'
-grep DtoH bs$1_moe$2.csv |awk -F, '{ssy=ssy+$12} END{print "DtoH(MB) " ssy}'
-grep DtoD bs$1_moe$2.csv |awk -F, '{ssy=ssy+$12} END{print "DtoD(MB) " ssy}'
-grep PtoP bs$1_moe$2.csv |awk -F, '{ssy=ssy+$12} END{print "PtoP(MB) " ssy}'
+grep HtoD bs$1_moe$2_gpu$3.csv |awk -F, '{ssy=ssy+$12} END{print "HtoD(MB) " ssy}'
+grep DtoH bs$1_moe$2_gpu$3.csv |awk -F, '{ssy=ssy+$12} END{print "DtoH(MB) " ssy}'
+grep DtoD bs$1_moe$2_gpu$3.csv |awk -F, '{ssy=ssy+$12} END{print "DtoD(MB) " ssy}'
+grep PtoP bs$1_moe$2_gpu$3.csv |awk -F, '{ssy=ssy+$12} END{print "PtoP(MB) " ssy}'
 
-awk -F, '{ if($1 - last > 10) { print last " " $1 } last=$1 }' bs$1_moe$2.csv > bs$1_moe$2.csv.bak 
-awk '{if($1-last>end-start) {start=last;end=$1};last=$2} END{print "Train_time(s) " start " " end " " end-start}' bs$1_moe$2.csv.bak
+$(dirname "$0")/seperate.sh  bs$1_moe$2_gpu$3.csv |awk '{print "runtime : " $NF}'
 
-
-
-
-grep "PtoP" bs$1_moe$2.csv > ss3
+grep "PtoP" bs$1_moe$2_gpu$3.csv > ss3
 awk -F, '{if($0 ~ /Tesla V100-SXM2-16GB \(0\).*Tesla V100-SXM2-16GB \(0\).*Tesla V100-SXM2-16GB \(1\)/) print $1 " " $2 " " $12 " " $13}'  ss3 > ss3_01
 awk -F, '{if($0 ~ /Tesla V100-SXM2-16GB \(0\).*Tesla V100-SXM2-16GB \(0\).*Tesla V100-SXM2-16GB \(2\)/) print $1 " " $2 " " $12 " " $13}'  ss3 > ss3_02
 awk -F, '{if($0 ~ /Tesla V100-SXM2-16GB \(0\).*Tesla V100-SXM2-16GB \(0\).*Tesla V100-SXM2-16GB \(3\)/) print $1 " " $2 " " $12 " " $13}'  ss3 > ss3_03
