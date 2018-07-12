@@ -18,7 +18,7 @@ else
     --worker_gpu_memory_fraction=0.80 \
     --keep_checkpoint_max=0 \
     --data_dir=../moe_data/data \
-    --output_dir=out/bs$1_moe$2_gpu$3 \
+    --output_dir=bs$1_moe$2_gpu$3.out \
     --tmp_dir=/tmp 2> >(tee bs$1_moe$2_gpu$3.log)
 fi
 

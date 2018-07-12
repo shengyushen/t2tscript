@@ -3,7 +3,8 @@ t2t additional script
 
 lm1b.sh  : run a training 
 
-
+adddelta.sh
+adddelta.awk : fixxing the delta time and py files
 
 
 
