@@ -14,6 +14,7 @@ plttraintime.plt
 plttraintime.sh  : plot the run time
 
 
+fit_moe.sh : generate the curve for the trainable variables
 ++++++++++++++++++++++++++++++++++++++
 
 analyzing.sh : not used and replaced by a2.sh
@@ -29,7 +30,6 @@ plttraintime.sh : plot all train time in a picture
 adddelta.sh
 adddelta.awk : adding delta to all SSY time report
 
-fit_moe.sh : generate the curve for the trainable variables
 
 delpyc.sh : delete all pyc files for all py modified
 

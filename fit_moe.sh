@@ -1,0 +1,3 @@
+grep Trainable bs*moe*gpu*.log |sort |awk -F: '{print $1 " " $NF}'|awk '{print $1 " " $NF}'| awk '{split($1,arr,".");split(arr[1],arrr,"_");print substr(arrr[1],3,length(arrr[1])-2) " " substr(arrr[2],4,length(arrr[2])-3) " " substr(arrr[3],4,length(arrr[2]-3)) " " $NF}'|awk '{print  $2 " " $4}'|sort |uniq |sort -t ' ' -k 1 -n > ttt2
+
+gnuplot -p -e 'set xlabel "Number of experts";set ylabel "Size of model parameters";f(x)=a*x+b;fit f(x) "ttt2" using 1:2 via a,b;x1=131072; y1=f(131072);set xrange [2:500000];set logscale xy;set label ;plot [0.1:500000] "ttt2" u 1:2 with points,[0.1:500000] f(x), "" using (x1):(y1):(sprintf("%.0fGB with\n 128k experts",y1*4/(1024*1024*1024))) with labels'

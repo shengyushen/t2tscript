@@ -1,3 +1,0 @@
-grep Trainable log_bs2_moe*.log |sort |awk -F: '{print $1 " " $NF}'|awk '{print $1 " " $NF}'| awk '{split($1,arr,".");split(arr[1],arrr,"_");print substr(arrr[2],3,length(arrr[2])-2) " " substr(arrr[3],4,length(arrr[3])-3) " " $NF}'|sort -t ' ' -k 2 -n >> ttt2
-
-gnuplot -p -e 'set xlabel "Number of exports";set ylabel "Size of model parameters";f(x)=a*x+b;fit f(x) "ttt2" using 2:3 via a,b;x1=131072; y1=f(131072);set xrange [2:500000];set logscale xy;set label ;plot [0.1:500000] "ttt2" u 2:3 with points,[0.1:500000] f(x), "" using (x1):(y1):(sprintf("%.0fGB with\n 128k experts",y1*4/(1024*1024*1024))) with labels'
