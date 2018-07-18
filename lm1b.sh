@@ -23,7 +23,14 @@ else
 fi
 
 
+#    --metrics flop_count_dp,flop_count_sp,flop_dp_efficiency,flop_sp_efficiency,flop_count_hp,flop_hp_efficiency \
+#    --metrics flop_count_dp,flop_count_sp,flop_dp_efficiency,flop_sp_efficiency,flop_count_hp,flop_hp_efficiency,dram_read_bytes,dram_read_throughput,dram_read_transactions,dram_utilization,dram_write_bytes,dram_write_throughput,dram_write_transactions,gld_efficiency,gld_requested_throughput,gld_throughput,gld_transactions,gld_transactions_per_request,global_load_requests,global_store_requests,gst_efficiency,gst_requested_throughput,gst_throughput,gst_transactions,gst_transactions_per_request,global_reduction_requests\
+# too much metrics that hand the t2t
 
+#--print-api-trae\
+#--unified-memory-profiling per-process-device  \
+#--profile-api-trace none 
+# this disable dependency analysis
 
 #    --local_eval_frequency=200 \
 # this is the steps in each iteration
