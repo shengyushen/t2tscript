@@ -72,6 +72,6 @@ awk -F, '{if($0 ~ /Tesla V100-SXM2-16GB \(7\).*Tesla V100-SXM2-16GB \(7\).*Tesla
 awk -F, '{if($0 ~ /Tesla V100-SXM2-16GB \(7\).*Tesla V100-SXM2-16GB \(7\).*Tesla V100-SXM2-16GB \(6\)/) print $1 " " $2 " " $12 " " $13}'  ss3 > ss3_76
 awk -F, '{if($0 ~ /Tesla V100-SXM2-16GB \(7\).*Tesla V100-SXM2-16GB \(7\).*Tesla V100-SXM2-16GB \(7\)/) print $1 " " $2 " " $12 " " $13}'  ss3 > ss3_77
 
-$(dirname "$0")/hddh8_part2.sh |awk '{if(NF==3) {print $1 " " $3 " 0"} else if(NF==0) {print ""} else {print $1 " " $3 " " $4}}' > hddh8
+hddh8_part2.sh |awk '{if(NF==3) {print $1 " " $3 " 0"} else if(NF==0) {print ""} else {print $1 " " $3 " " $4}}' > hddh8
 gnuplot -p -e 'set view 60,150,1,1;set pm3d at b;splot "hddh8" u 1:2:3 with lines '
 
